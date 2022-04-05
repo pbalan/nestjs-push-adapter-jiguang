@@ -11,8 +11,8 @@ declare module 'jpush-async' {
     isGroup: boolean
   }
   export interface Payload {
-    notification: Record<string, any>
-    message: Record<string, any>
+    notification?: Record<string, any>
+    message?: Record<string, any>
   }
   export enum TimeUnit {
     Day = 'day',
@@ -43,39 +43,37 @@ declare module 'jpush-async' {
     Dec = '12',
   }
 
-  export class JPush extends JPushClient {
-    constructor(options?: JPushClientOptions): JPushClient
-    new(
-      appKey: string,
-      masterSecret: string,
-      retryTimes: number,
-      isDebug: boolean,
-      readTimeOut: number,
-      proxy: string,
-      isGroup: boolean,
-    ): JPushClient
-
-    buildClient(
-      appKey: string,
-      masterSecret: string,
-      retryTimes: number,
-      isDebug: boolean,
-      readTimeOut: number,
-      proxy: string,
-      isGroup: boolean,
-    ): JPushClient
-  }
-
   export const ALL = 'all'
 
-  export class JPushClient extends PushPayload {
+  export declare class JPushClient extends PushPayload {
     isGroup: boolean
-    appkey: string
+    appKey: string
     masterSecret: string
     retryTimes: number
     isDebug: boolean
     readTimeOut: number | null
     proxy: string | null
+    constructor(
+      options?: JPushClientOptions,
+      appKey?: string,
+      masterSecret?: string,
+      retryTimes?: number,
+      isDebug?: boolean,
+      readTimeOut?: number,
+      proxy?: string,
+      isGroup?: boolean,
+    ): JPushClient
+
+    buildClient(
+      options?: JPushClientOptions,
+      appKey?: string,
+      masterSecret?: string,
+      retryTimes?: number,
+      isDebug?: boolean,
+      readTimeOut?: number,
+      proxy?: string,
+      isGroup?: boolean,
+    ): JPushClient
     sendPush(payload: Payload): RequestPromise
     push(): PushPayload
     getReportReceiveds(msgIds: string): RequestPromise
@@ -115,8 +113,8 @@ declare module 'jpush-async' {
     ): RequestPromise
   }
 
-  export class PushPayload {
-    new(client: JPushClient)
+  export declare class PushPayload {
+    constructor(client: JPushClient)
     payload: Payload
     trigger: Record<string, any>
     setPlatform(args?: string): JPushClient

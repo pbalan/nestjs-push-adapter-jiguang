@@ -16,7 +16,7 @@
     "test:e2e:dev": "jest --config ./tests/jest-e2e.json --runInBand --watch"
   },
   "dependencies": {
-    "nest-push-notifications": "^0.0.3",
+    "nest-push-notifications": "^0.0.4",
     "jpush-async": "^4.0.1"
   },
   "devDependencies": {
