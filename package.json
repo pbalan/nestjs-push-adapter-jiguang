@@ -1,6 +1,6 @@
 {
   "name": "nest-push-adapter-jiguang",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Jiguang Adapter",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,7 +16,7 @@
     "test:e2e:dev": "jest --config ./tests/jest-e2e.json --runInBand --watch"
   },
   "dependencies": {
-    "nest-push-notifications": "^0.0.4",
+    "nest-push-notifications": "^0.0.6",
     "jpush-async": "^4.0.1"
   },
   "devDependencies": {

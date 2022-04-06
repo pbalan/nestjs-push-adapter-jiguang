@@ -45,6 +45,18 @@ declare module 'jpush-async' {
 
   export const ALL = 'all'
 
+  export declare class JPushAsync extends JPushClient {
+    buildClient(
+      options?: JPushClientOptions,
+      appKey?: string,
+      masterSecret?: string,
+      retryTimes?: number,
+      isDebug?: boolean,
+      readTimeOut?: number,
+      proxy?: string,
+      isGroup?: boolean,
+    ): JPushClient
+  }
   export declare class JPushClient extends PushPayload {
     isGroup: boolean
     appKey: string
@@ -63,7 +75,6 @@ declare module 'jpush-async' {
       proxy?: string,
       isGroup?: boolean,
     ): JPushClient
-
     buildClient(
       options?: JPushClientOptions,
       appKey?: string,
@@ -189,6 +200,17 @@ declare module 'jpush-async' {
     isIosExceedLength(): boolean
     isGlobalExceedLength(): boolean
   }
+
+  export function buildClient(
+    options?: JPushClientOptions,
+    appKey?: string,
+    masterSecret?: string,
+    retryTimes?: number,
+    isDebug?: boolean,
+    readTimeOut?: number,
+    proxy?: string,
+    isGroup?: boolean,
+  ): JPushClient
 
   namespace JPush {}
   export = JPush
